@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  flask:
+    image: nikololiahim/flask:latest
+    deploy:
+      replicas: 3
+
+  nginx:
+    image: nikololiahim/nginx:latest
+    deploy:
+      replicas: 3
+    ports:
+      - "80:80"
+    depends_on:
+      - flask
